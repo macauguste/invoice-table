@@ -1,0 +1,37 @@
+[
+  {
+    "itemNumber": 1,
+    "description": "Delivery",
+    "hours": 3,
+    "rate": 10,
+    "total": 30
+  },
+  {
+    "itemNumber": 2,
+    "description": "Delivery",
+    "hours": 5,
+    "rate": 50,
+    "total": 250
+  },
+  {
+    "itemNumber": 3,
+    "description": "Massage",
+    "hours": 1,
+    "rate": 15,
+    "total": 15
+  },
+  {
+    "itemNumber": 4,
+    "description": "Website Maintainance",
+    "hours": 5,
+    "rate": 200,
+    "total": 1000
+  },
+  {
+    "itemNumber": 5,
+    "description": "Presentation",
+    "hours": 2,
+    "rate": 12,
+    "total": 24
+  }
+]

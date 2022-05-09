@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import data from "./mock-data.json";
+import "./app.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+  const [invoices, setInvoices] = useState(data);
+
+  return <div className="app-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Item Number</th>
+          <th>Description</th>
+          <th>Hours</th>
+          <th>Rate</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {invoices.map((invoice) =>(
+          <tr>
+            <th>{invoice.itemNumber}</th>
+            <th>{invoice.description}</th>
+            <th>{invoice.hours}</th>
+            <th>{invoice.rate}</th>
+            <th>{invoice.total}</th>
+          </tr>
+        ))}
+      </tbody>
+          
+      <h2> Add an Invoice </h2>
+    </table>
+  </div>
 }
 
 export default App;
