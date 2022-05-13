@@ -1,0 +1,103 @@
+ export default function UserForm() {
+ return (
+    <div className="app-container">
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Item Number</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Rate</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {invoices.map((invoice) =>(
+            <tr>
+              <td>{"Invoice "+(invoice.itemNumber)}</td>
+              <td>{invoice.name}</td>
+              <td>{invoice.description}</td>
+              <td>{invoice.date}</td>
+              <td>{invoice.hours}</td>
+              <td>{"$"+(invoice.rate)}</td>
+              <td>{"$"+(invoice.total)}</td>
+            </tr>
+          ))}
+        </tbody> 
+        <tfoot>
+          <tr>
+            <td colSpan="6" >
+              Total
+            </td>
+            <td className="tableTotal" colSpan="7" >
+              {}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <form onSubmit={handleAddInvoiceSubmit}>
+        <div class="firstRow">
+            <div>
+            <input 
+                type="text" 
+                name="name" 
+                required="required" 
+                placeholder="Name" 
+                onChange={handleAddInvoiceChange}
+            /> 
+            </div>
+            <div>
+              <input 
+                  type="text" 
+                  name="description" 
+                  required="required" 
+                  placeholder="Description" 
+                  onChange={handleAddInvoiceChange}
+              /> 
+            </div>
+            <div>
+              <input 
+                  type="date" 
+                  name="date"
+                  required="required" 
+                  min="2018-01-01"
+                  onChange={handleAddInvoiceChange}
+              />
+            </div>
+        </div> 
+        <div class="secondRow">
+            <div>
+              <input 
+                  type="number" 
+                  name="hours"  
+                  required="required" 
+                  placeholder="hours worked" 
+                  onChange={handleAddInvoiceChange}
+              />
+            </div>
+            <div>
+              <input 
+                  type="number" 
+                  name="rate" 
+                  required="required" 
+                  placeholder="job rate" 
+                  onChange={handleAddInvoiceChange}
+              />
+            </div>
+            <div>
+              <label class="secondRow" for="subTotal">
+                {"SubTotal = $"+ addInvoiceData.hours * addInvoiceData.rate}
+              </label>
+            </div>
+            <div>
+              <button class= "secondRow" type="submit" value="">Add Invoice</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    )
+}

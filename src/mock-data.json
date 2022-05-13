@@ -1,35 +1,45 @@
 [
   {
     "itemNumber": 1,
+    "name": "Jonathan",
     "description": "Delivery",
+    "date": 12102021,
     "hours": 3,
     "rate": 10,
     "total": 30
   },
   {
     "itemNumber": 2,
+    "name": "Mark",
     "description": "Delivery",
+    "date": 12122021,
     "hours": 5,
     "rate": 50,
     "total": 250
   },
   {
     "itemNumber": 3,
+    "name": "Kane",
     "description": "Massage",
+    "date": 29022022,
     "hours": 1,
     "rate": 15,
     "total": 15
   },
   {
     "itemNumber": 4,
+    "name": "Silas",
     "description": "Website Maintainance",
+    "date": 13032022,
     "hours": 5,
     "rate": 200,
     "total": 1000
   },
   {
     "itemNumber": 5,
+    "name": "Mane",
     "description": "Presentation",
+    "date": 12042022,
     "hours": 2,
     "rate": 12,
     "total": 24
