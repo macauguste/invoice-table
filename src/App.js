@@ -1,4 +1,4 @@
-  import React, { useState } from 'react';
+  import React, { useEffect, useState } from 'react';
   import { AiOutlineDelete } from "react-icons/ai"
   import data from "./mock-data.json";
   import "./app.css";
@@ -18,6 +18,20 @@
       rate: '',
       total: '',
     });
+
+    const refreshInputs = ()=> {
+
+      const newInputs = {
+        itemNumber: '',
+        name: '',
+        date: '',
+        description: '',
+        hours: '',
+        rate: '',
+        total: '',
+      }
+    setAddInvoiceData(newInputs)
+    }
 
     const handleAddInvoiceChange = (event) => {
       event.preventDefault();
@@ -44,23 +58,30 @@
         rate: (addInvoiceData.rate),
         total: (addInvoiceData.hours * addInvoiceData.rate),
       };
-  
-      // const handleDeleteClick = (itemNumber) => {
-      //   const newInvoice = {...invoices}
-
-      //   const index = invoices.findIndex((invoice) => invoice.itemNumber === itemNumber);
-      //   newInvoice.splice(index, 1)
-      //   setInvoices(newInvoice);
-      // }
 
       const newInvoices = [...invoices, newInvoice];
       setInvoices(newInvoices);
+      refreshInputs();
     };
 
-    //Delete function 
-    const deleteRow = (itemNumber) =>{
+    //Calculate sum of total in tabble
+    useEffect(()=> {
+    let rows = document.querySelectorAll(".tableTotal")
+    let sum = 0;
 
+    for (let i = 0; i < rows.length; i++) {
+     if (rows[i].className === "tableTotal"){
+       sum += isNaN(rows[i].innerHTML) ? 0 : parseInt(rows[i].innerHTML)
+       setTotal(sum)
+       }
+     }
+    })
+    
+    //Delete function 
+    const deleteRow = (itemNumber) => {
+      setInvoices(invoices.filter((row) => row.itemNumber !== itemNumber))
     }
+
 
 
     // //Calculating total amount of items in the tableTotal
